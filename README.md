@@ -8,3 +8,5 @@ Aucune modification ou factorisation n'a été effectué depuis la fin de ces ex
 Je tiens à pouvoir comparer l'évolution de mon code à travers le temps.
 
 Bonne balade !
+
+NB => DANS LE DOSSIER SCREENSHOTS, VOUS POUVEZ JETTER UN OEIL AU RENDU DU SITE ET DES EXERCICES
