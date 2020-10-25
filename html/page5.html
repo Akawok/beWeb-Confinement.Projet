@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Créer un panier</title>
+		<link rel="stylesheet" type="text/css" href="../style/style.css">
+		<script type="text/javascript" src="../script/script_page5.js" async></script>
+	</head>
+	<body>
+		<!-- EN-TÊTE DE PAGE : -->
+		<header>
+	    	<h1 align="center">Site Projet</h1>
+			<!-- SECTION MENU & MENU DEROULANT -->
+		    <nav>
+		        <ul>
+		        	<li><a href="index.html">Accueil</a></li>
+		          	<li><a href="page1.html">Générateur de table</a></li>
+		          	<li><a href="page2.html">Calcul calories journalières</a></li>
+		          	<li><a href="page3.html">Générateur de langue Alien</a></li>
+		          	<li><a href="page4.html">Convertisseur Chiffres->lettres</a></li>
+		          	<li><a href="page5.html">Créer un panier</a></li>
+		          	<li class="deroulant"><a href="#">Exercices JavaScript</a>
+		            <ul class="sous">
+		              <li><a href="13fonctions.html" target="_blank">JavaScript : 13 fonctions</a></li>
+		              <li><a href="Exo-15jrs.html" target="_blank">JavaScript : 15 jours d'exercices</a></li>
+		              <li><a href="Shifumi/index.html" target="_blank">Shifumi</a></li>
+		              <li><a href="leBonNombre.html" target="_blank">Le bon nombre</a></li>
+		        	</ul>
+		          	</li>
+		        </ul>
+		    </nav>
+	    </header><hr> 
+	    <!-- CORPS DE PAGE -->
+	    <section>
+	    	<div id="global">
+	    		<h1>Convertisseur Chiffres => Lettres</h1><br>
+	    		<p><b>Enoncé :</b> <em>Créer un panier sommaire : On entre le nombre voulu de chaque article (en tableau : article/prix) et le paiement en monnaie,  et l'interface calcule  la somme totale et le rendu de monnaie.</em></p><br>
+	    	</div><br>
+	    	<!-- CREER UNE TABLE -->
+	    	<div>
+	    		<table>
+	    			<th>Produit</th>
+	    			<th>Quantité</th>
+	    			<th>Prix</th>
+	    			<tr>
+	    				<td>Poule aux Oeufs d'Or</td>
+	    				<td><input type="number" id="produit1"><button class="add" id="buy1">Ajouter</button></td>
+	    				<td>2500€</td>
+	    			</tr>
+	    			<tr>
+	    				<td>Baguette Tradition</td>
+	    				<td><input type="number" id="produit2"><button class="add" id="buy2">Ajouter</button></td>
+	    				<td>1€</td>
+	    			</tr>
+	    			<tr>
+	    				<td>Abonnement Pornhub Prenium</td>
+	    				<td><input type="number" id="produit3"><button class="add" id="buy3">Ajouter</button></td>
+	    				<td>12€/mois</td>
+	    			</tr>
+	    			<tr>
+	    				<td>Une Pillule Bleue ou Rouge au choix</td>
+	    				<td><select id="color">
+	    					<option>--Choisissez votre couleur--</option>
+	    					<option value="blue">Pillule Bleue</option>
+	    					<option value="red">Pillule Rouge</option>
+	    				</select>
+	    				<button class="add" id="buy5">Ajouter</button>
+	    				</td>
+	    				<td>Bleue => 110€<br>
+	    					Rouge => 111€
+	    				</td>
+	    			</tr>
+	    			<tr>
+	    				<td>Stage Commando avec Captain Phil</td>
+	    				<td><button class="add" id="buy4">Ajouter</button></td>
+	    				<td>Gratuit</td>
+	    			</tr>
+	    		</table><br>
+	    		<!-- RESULTATS : -->
+	    		<p>Votre Panier : </p><br>
+	    		<p id="resultat1"></p>
+	    		<p id="resultat2"></p>
+	    		<p id="resultat3"></p>
+	    		<p id="resultat4"></p>
+	    		<p id="resultat5"></p><br>
+	    		<p id="total"></p>
+	    	</div><br>
+	    	<p>Entrez la somme que vous donnez pour payer : <input id="z"><button class="add" id="payer">Payer</button></p><br>
+	    	<p id="rendu"></p><br><br>
+	    	<button id="reset">Réinitialiser</button><br><br>
+	    </section><br><br>
+	    <!-- PIED DE PAGE -->
+	    <footer>
+	    	<div class="foot">
+	      		<p>Promo Montpellier_02 - Copyright 2017 - beWeb - Tous droits réservés © propulsé par Fondespierre</p>
+	  		</div>	
+	    </footer>
+	</body>
+</html>

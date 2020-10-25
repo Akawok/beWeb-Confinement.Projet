@@ -1,0 +1,211 @@
+/*IMPORTER UNE POLICE DE CARACTERE*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/*STYLISER L'ENSEMBLE DES PAGE*/
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: Roboto, sans-serif;
+	text-align: center;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	background-color: #191f26;
+	height: 100%;
+}
+
+input{
+	height: 20px;
+	text-align: center;
+	width: 100px;
+}
+
+section{
+	min-height:100%;
+	margin:0 auto;
+}
+
+#global{
+	text-align: center;
+	margin-top: 40px;
+}
+
+h1{
+	font-size: 32px;
+	color: white;
+}
+
+p{
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+.p_home{
+	margin-top: 100px;
+	font-size: 26px;
+}
+
+button{
+	width: 120px;
+	height: 50px;
+	display:inline-block;
+	padding:0.35em 1.2em;
+	border:0.1em solid #FFFFFF;
+	margin:0 0.3em 0.3em 0;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	font-family:'Roboto',sans-serif;
+	font-weight:300;
+	color:white;
+	background-color: black;
+	text-align: center;
+	border-bottom: 2px solid transparent;
+	font-size: 15px;
+}
+
+button:hover{
+	background-color:black;
+	color:#cefcff;
+	border-bottom: 2px solid #cefcff;
+	font-size: 15px;
+	cursor: pointer;
+	text-align: center;
+}
+
+/*STYLISER LES HAUTS DE PAGE*/
+header{
+	padding: 20px;
+	background-image: url(gif1.gif);
+}
+
+/*STYLISER LES PIEDS DE PAGE*/
+footer{
+	text-align: center;
+    color:white;
+    width: 100%;
+}
+
+/*STYLISER LA BARRE DE NAVIGATION :*/
+nav{
+	width: 100%;
+	margin: 0 auto;
+	position: sticky;
+	top: 0px;
+}
+nav ul{
+	list-style-type: none;
+}
+nav ul li{
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+nav ul::after{
+	content: "";
+	display: table;
+	clear: both;
+}
+nav a{
+	display: block;
+	text-decoration: none;
+	color: white;
+	border-bottom: 2px solid transparent;
+	padding: 10px 0px;
+}
+nav a:hover{
+	color:#cefcff;
+	border-bottom: 2px solid #cefcff;
+}
+.sous{
+	display: none;
+	box-shadow: 0px 1px 2px #CCC;
+	background-color: white;
+}
+nav > ul li:hover .sous{
+	display: block;
+}
+.sous li{
+	float: none;
+	width: 100%;
+	text-align: left;
+}
+.sous a{
+	padding: 10px;
+	border-bottom: none;
+}
+.sous a:hover{
+	border-bottom: none;
+	background-color: RGBa(200,200,200,0.1);
+}
+.deroulant > a::after{
+	content: " ▼";
+	font-size: 12px;
+}
+.sous{
+	display: none;
+	box-shadow: 0px 1px 2px #CCC;
+	background-color: black;
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+}
+nav ul li{
+	float: left;
+	width: 25%;
+	text-align: center;
+	position: relative;
+}
+
+/*STYLISER GIF PAGE INDEX*/
+.gif_home{
+	height: 500px;
+	width: 700px;
+}
+
+/*STYLE DE LA TABLE PAGE 01:*/
+table{
+	margin: 0 auto;
+	border: medium solid #000000;
+	width: 50%;
+	background-color: black;
+	color: white;
+}
+
+th{
+border: thin solid #cefcff;
+width: 20%;
+}
+
+th{
+	background-color: #46516a;
+}
+
+td{
+	border: thin solid #cefcff;
+}
+
+/*STYLE PANIER*/
+
+.add{
+	width: 80px;
+	height: 30px;
+	display:inline-block;
+	border:0.1em solid #FFFFFF;
+	border-radius:0.12em;
+	box-sizing: border-box;
+	color:white;
+	background-color: black;
+	border-bottom: 2px solid transparent;
+	margin-left: 10px;
+}
+
+.add:hover{
+	background-color:black;
+	color:#cefcff;
+	border-bottom: 2px solid #cefcff;
+	cursor: pointer;
+}

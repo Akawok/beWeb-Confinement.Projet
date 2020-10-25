@@ -1,0 +1,707 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            *{
+                text-align: center;
+                background-color: #1D2229;
+                color: #D1B88E;
+            }
+            hr{
+                width: 50%;
+            }
+            span{
+                font-size: 42px;
+            }
+            nav ul{
+	            list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- EN-TETE DE PAGE -->
+        <h1>Exercices Semaine 03</h1>
+        <!-- BARRE DE NAVIGATION -->
+        <nav>
+          <ul>
+            <li><a href="#jour01">Jour 1</a></li>
+            <li><a href="#jour02">Jour 2</a></li>
+            <li><a href="#jour03">Jour 3</a></li>
+            <li><a href="#jour04">Jour 4</a></li>
+            <li><a href="#jour05">Jour 5</a></li>
+            <li><a href="#jour06">Jour 6</a></li>
+            <li><a href="#jour07">Jour 7</a></li>
+            <li><a href="#jour08">Jour 8</a></li>
+            <li><a href="#jour09">Jour 9</a></li>
+            <li><a href="#jour10">Jour 10</a></li>
+            <li><a href="#jour11">Jour 11</a></li>
+            <li><a href="#jour12">Jour 12</a></li>
+            <li><a href="#jour13">Jour 13</a></li>
+            <li><a href="#jour14">Jour14</a></li>
+            <li><a href="#jour15">Jour 15</a></li>
+          </ul>         
+        </nav>
+        <!-- EXERCICES DU JOUR 01 -->
+        <div id="jour01">
+            <h2>Exercices Jour 01</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour supprimmer tous les caractères qui reviennent plus d'une fois dans une chaine (chiffre ou lettre)</p>
+            <input id="input1">
+            <button id="fonction1">Créer</button>
+            <button id="reset1">Reset</button>
+            <p id="resultat1"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction1").addEventListener("click", function(){
+                    let my_value = document.getElementById("input1").value;
+                    let my_new_value = my_value.split("");
+                    let my_array = [];
+                    for (let i=0; i<my_new_value.length; i++){
+                        if (my_array.indexOf(my_new_value[i]) === -1){
+                            my_array.push(my_new_value[i]);
+                        }
+                    }
+                    let my_final_value = my_array.join("");
+                    document.getElementById("resultat1").innerHTML = "<b>Vous avez créé la chaîne : </b>" + my_value + "<br>" + "<b>Tadaaaaam !! La voici maintenant sans les doublons : </b>" + my_final_value;
+                });
+                // RESET
+                document.getElementById("reset1").addEventListener("click", function(){
+                    document.getElementById("resultat1").innerHTML = "";
+                    document.getElementById("input1").value = "";
+                });
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> faire une fonction pour convertir une chaine CSV  par ex : 'p,q\nr,s' en tableau 2D [["p", "q"], ["r", "s"]]</p>
+            <input type="text" id="input2" placeholder="Entrez une chaine CSV">
+            <button id="fonction2">Créer</button>
+            <button id="reset2">Reset</button>
+            <p id="resultat2"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction2").addEventListener("click", function(){
+                    let my_csv = document.getElementById("input2").value;
+                    let my_new_csv = my_csv.split("\\n");
+                    let my_array = [];
+                    for (let i=0; i<my_new_csv.length; i++){
+                        let temp = my_new_csv[i].split(",");
+                        my_array.push(temp);
+                    }
+                    document.getElementById("resultat2").innerHTML = "<b>Votre entrée </b>" + my_csv + "<b> devient : </b>" + JSON.stringify(my_array);
+                });
+                // RESET
+                document.getElementById("reset2").addEventListener("click", function(){
+                    document.getElementById("resultat2").innerHTML = "";
+                    document.getElementById("input2").value = "";
+                });             
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 02 -->
+        <div id="jour02">
+            <h2>Exercices Jour 02</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS qui échange deux à deux les chiffres d'un nombre dont la taille est paire (exemple: 52,5498,658798, mais pas 1,654,98765) </p>
+            <input id="input3" type="number">
+            <button id="fonction3">Echanger</button>
+            <button id="reset3">Reset</button>
+            <p id="resultat3"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction3").addEventListener("click", function(){
+                    let my_number = document.getElementById("input3").value;
+                    if(my_number.length%2==1){
+                        document.getElementById("resultat3").innerHTML = "<b>Entrez un nombre de longueur paire !!</b>";
+                    }
+                    else if(my_number.length%2==0){
+                        my_number = my_number.match(/..?/g);
+                        let my_new_number = [];
+                        for (let i=0; i<my_number.length; i++){
+                            my_new_number += my_number[i].split("").reverse().join("");
+                        }
+                        document.getElementById("resultat3").innerHTML = "<b>Votre entrée </b>" + my_number.join("") + "<b> à été secouée comme une bouteille d'orangina !!</b><br>" + "<b>Voici le resultat : </b>" + my_new_number;
+                    }
+                });
+                // RESET
+                document.getElementById("reset3").addEventListener("click", function(){
+                    document.getElementById("resultat3").innerHTML = "";
+                    document.getElementById("input3").value = "";
+                });             
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS qui permet de retourner le Nieme argument d'une fonction quelconque (la position de l'argument recherché est passé en paramètre)</p>
+            <input id="input4">
+            <button id="fonction4">Retourner</button>
+            <button id="reset4">Reset</button>
+            <p id="resultat4"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 03 -->
+        <div id="jour03">
+            <h2>Exercices Jour 03</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Faire une fonction JS pour additionner tous les chiffres présents dans une chaine mixte (type 'kjhd2hjh4jh98') </p>
+            <input id="input5">
+            <button id="fonction5">Additionner</button>
+            <button id="reset5">Reset</button>
+            <p id="resultat5"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction5").addEventListener("click", function(){
+                    let my_value = document.getElementById("input5").value;
+                    let my_result = my_value.match(/\d+/g).join('');
+                    let my_array = my_result.split("");
+                    let my_new_array = 0;
+                    for(let i=0; i<my_array.length; i++){
+                    my_new_array += parseInt(my_array[i]);
+                    }
+                    document.getElementById("resultat5").innerHTML = "<B>Votre entrée : </b>" + my_value + "<b> contient les chiffres suivant : </b>" + my_array + "<br><b>Voici le résultat de l'addition de chacun des chiffres : </b>" + my_array.join(' + ') + " = " + my_new_array;
+                // FONCTION ANNEXE :
+                    // let my_value = document.getElementById("input5").value;
+                    // let my_array = my_value.split("");
+                    // let my_new_array = 0;
+                    // for(let i=0; i<my_array.length; i++){
+                    //  if(isNaN (my_array[i])){
+                    //          continue;
+                    //      }
+                    //      else {
+                    //          my_new_array += Number(my_array[i]);
+                    //      }
+                    //  }           
+                });
+                // RESET
+                document.getElementById("reset5").addEventListener("click", function(){
+                    document.getElementById("resultat5").innerHTML = "";
+                    document.getElementById("input5").value = "";
+                });                     
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Trouver à l'aide d'une fonction JS tous les facteurs premiers distincts d'un entier donné</p>
+            <input id="input6">
+            <button id="fonction6">Trouver</button>
+            <button id="reset6">Reset</button>
+            <p id="resultat6"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 04 -->
+        <div id="jour04">
+            <h2>Exercices Jour 04</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b>: Ecrire une fonction JS pour calculer la somme des cubes à partir de 1 jusqu'à un entier donné</p>
+            <input id="input7">
+            <button id="fonction7">Calculer</button>
+            <button id="reset7">Reset</button>
+            <p id="resultat7"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction7").addEventListener("click", function(){
+                    let my_number = document.getElementById("input7").value
+                    let my_result = 0;
+                    for(let i=1; i<=my_number; i++){
+                        my_result += Math.pow([i],3)
+                    }
+                    document.getElementById("resultat7").innerHTML = "<b>Voici la somme totale des cubes en partant de 1 à </b>" + "<b>" + my_number + "</b> : " + my_result;   
+                });
+                // RESET
+                document.getElementById("reset7").addEventListener("click", function(){
+                    document.getElementById("resultat7").innerHTML = "";
+                    document.getElementById("input7").value = "";
+                });     
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Créer un tableau de données comportant une liste de prénoms. Exemple: Julie, Cedric, Jean-Marc...<br>
+                Ajouter un bouton vous permettant d'afficher le premier prénom du tableau.<br>
+                Ajouter un bouton vous permettant d'afficher tous les prénoms.<br>
+                Ajouter un bouton vous permettant d'afficher le dernier resultat du tableau.<br>
+                Créer une instance (une copie) du tableau et y ajouter Céline à la fin du tableau et afficher l'ensemble des résultats.<br>
+                Créer un nouvelle instance du tableau et supprimer Cedric et Jean-Marc (les positions 1 et 2).<br>
+                Intégrer ensuite un bouton vous permetant d'afficher le résultat sur votre navigateur.</p>
+            <input id="input8">
+            <button id="fonction8"></button>
+            <button id="reset8">Reset</button>
+            <p id="resultat8"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 05 -->
+        <div id="jour05">
+            <h2>Exercices Jour 05</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour transformer une URL type  "protocole://domaine.extension" en tableau</p>
+            <input id="input9">
+            <button id="fonction9">Transformer</button>
+            <button id="reset9">Reset</button>
+            <p id="resultat9"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction9").addEventListener("click", function(){
+                    let my_link = document.getElementById("input9").value;
+                    let my_array = my_link.split(/[\s,/.:]+/);
+                    document.getElementById("resultat9").innerHTML = "<b>Voici votre lien : </b>"  + my_link + ".<br><b> Désormais, votre lien est sous forme de tableau : </b>" + JSON.stringify(my_array) ;
+                });
+                // RESET
+                document.getElementById("reset9").addEventListener("click", function(){
+                    document.getElementById("resultat9").innerHTML = "";
+                    document.getElementById("input9").value = "";
+                }); 
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> ecrire une fonction JS qui défère l'execution d'une suite de fonctions (callbacks)<br>
+                Exemple : console.log('a'), console.log('b'); => affiche a puis b !<br>
+                defere(console.log, 'a'), console.log('b'); => affiche b puis a !</p>
+            <input id="input10">
+            <button id="fonction10"></button>
+            <button id="reset10">Reset</button>
+            <p id="resultat10"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+            <!-- EXERCICES DU JOUR 06 -->
+        <div id="jour06">
+            <h2>Exercices Jour 06</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour trouver l'entier maximum qui permet la somme 1+2+...n </p>
+            <input type="number" id="input11">
+            <button id="fonction11">Trouver</button>
+            <button id="reset11">Reset</button>
+            <p id="resultat11"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction11").addEventListener("click", function(){
+                    let my_value = document.getElementById("input11").value;
+                    let my_number = 0;
+                    for(let i=0; i<my_value; i++){
+                        my_number += i;
+                        if(my_number<=my_value){
+                            document.getElementById("resultat11").innerHTML = "<b>L'entier maximum qui permet de trouver l'entier de : </b>" + my_value + "<b> est : </b>" + i;
+                        }
+                    }
+                });
+                // RESET
+                document.getElementById("reset11").addEventListener("click", function(){
+                    document.getElementById("resultat11").innerHTML = "";
+                    document.getElementById("input11").value = "";
+                }); 
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Ecrire un programme JS pour recuperer la valeur d'un objet JSON basé sur sa clé<br>
+            (Pre-requis : definition et usage d'un objet JSON) : https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/JSON</p>
+            <input id="input12">
+            <button id="fonction12"></button>
+            <button id="reset12">Reset</button>
+            <p id="resultat12"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 07 -->
+        <div id="jour07">
+            <h2>Exercices Jour 07</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour trouver le nombre d'elements communs à deux tableaux d'entiers de meme taille </p>
+            <input id="input13">
+            <input id="deuxieme_input13">
+            <button id="fonction13">Trouver</button>
+            <button id="reset13">Reset</button>
+            <p id="resultat13"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction13").addEventListener("click", function(){
+                    let my_first_value = document.getElementById("input13").value.split(/[, .:]/);
+                    let my_second_value = document.getElementById("deuxieme_input13").value.split(/[, .:]/);
+                    my_first_value = Array.from(new Set(my_first_value));
+                    my_second_value = Array.from(new Set(my_second_value));
+                    let my_result = 0;
+                    for(let i=0; i<my_first_value.length; i++){
+                        for(let j=0; j<my_second_value.length; j++){
+                            if(my_first_value[i] === my_second_value[j]){
+                                my_result+= 1;    
+                            }
+                        }   
+                    }
+                    document.getElementById("resultat13").innerHTML = "<b>Il y a  </b>" + my_result + "<b> nombres identiques parmis vos deux entrées.</b>";
+                });
+                // RESET
+                document.getElementById("reset13").addEventListener("click", function(){
+                    document.getElementById("resultat13").innerHTML = "";
+                    document.getElementById("input13").value = "";
+                    document.getElementById("deuxieme_input13").value = "";                 
+                });
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS qui retourne les paramètres passés dans l'url</p>
+            <input id="input14">
+            <button id="fonction14"></button>
+            <button id="reset14">Reset</button>
+            <p id="resultat14"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 08 -->
+        <div id="jour08">
+            <h2>Exercices Jour 08</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour remplacer par le caractère $ le premier chiffre dans une chaine type "ahe3hjf6hej"</p>
+            <input id="input15">
+            <button id="fonction15">Remplacer</button>
+            <button id="reset15">Reset</button>
+            <p id="resultat15"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction15").addEventListener("click", function(){
+                    let my_value = document.getElementById("input15").value;
+                    let my_string = my_value.split("");
+                    for(let i=0; i<my_string.length; i++){
+                       if(Number(parseInt(my_string[i]))){
+                        my_string[i] = "$";
+                        break;
+                       }
+                    }
+                    document.getElementById("resultat15").innerHTML = "<b>Vous avez entré la chaine suivante : </b>" + my_value + "<br><b>Voilà le résultat avec le remplacement du preier chiffre par un $ : </b>" + my_string.join("");
+                });
+                // RESET
+                document.getElementById("reset15").addEventListener("click", function(){
+                    document.getElementById("resultat15").innerHTML = "";
+                    document.getElementById("input15").value = "";                 
+                });   
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Calculer un temps de vol en fonction d'une distance prédéfinie.<br>
+            Si on estime qu'un avion est capable de voler en moyenne 1000km par heure, ajouter un champs input (km) qui vous permettra d'estimer et afficher le temps de trajet en heures et minutes.<br>
+            Intégrez ensuite la fonction inverse. À partir d'un temp en minutes, combien de km l'avion est susceptible de parcourir.</p>
+            <input id="input16">
+            <button id="fonction16"></button>
+            <button id="reset16">Reset</button>
+            <p id="resultat16"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 09 -->
+        <div id="jour09">
+            <h2>Exercices Jour 09</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Écrire un programme qui permet le calcul d’un âge en fonction de la date de l’année de naissance saisie au clavier.</p>
+            <input id="input17">
+            <button id="fonction17">Calculer</button>
+            <button id="reset17">Reset</button>
+            <p id="resultat17"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction17").addEventListener("click", function(){
+                    let my_date = parseInt(document.getElementById("input17").value)
+                    let this_year = new Date();
+                    let my_age = this_year.getFullYear() - my_date;
+                    document.getElementById("resultat17").innerHTML = "<b>Vous êtes né en </b>" + my_date + "<br><b>Vous avez : </b>" + my_age + "<b> ans<br>Ou alors </b>" + parseInt(my_age-1) + " <b>ans si votre anniversaire n'est pas passé !!</b>"
+                });
+                // RESET
+                document.getElementById("reset17").addEventListener("click", function(){
+                    document.getElementById("resultat17").innerHTML = "";
+                    document.getElementById("input17").value = "";                 
+                });  
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Créer une fonction permettant de détecter la largeur disponible sur votre écran - Afficher ensuite le résultat.<br>
+            Intégrer une nouvelle fonction qui vous affichera dynamiquement la résolution de votre page lorsque vous changer manuelement</p>
+            <input id="input18">
+            <button id="fonction18"></button>
+            <button id="reset18">Reset</button>
+            <p id="resultat18"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 10 -->
+        <div id="jour10">
+            <h2>Exercices Jour 10</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Créer un bouton exécutant une fonction permettant de soustraire deux nombres à partir de deux champs inputs. Afficher ensuite le résultat.</p>
+            <input id="input19">
+            <input id="deuxieme_input19">
+            <button id="fonction19">Calculer</button>
+            <button id="reset19">Reset</button>
+            <p id="resultat19"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction19").addEventListener("click", function(){
+                    let my_first_value = parseInt(document.getElementById("input19").value);
+                    let my_second_value = parseInt(document.getElementById("deuxieme_input19").value);
+                    let my_first_result = my_first_value - my_second_value;
+                    let my_second_result = my_second_value - my_first_value;
+                    document.getElementById("resultat19").innerHTML = "<b>Première solution : </b>" + my_first_value + "<b> - </b>" + my_second_value + "<b> = </b>" + my_first_result + "<br><b>Deuxième solution : </b>" + my_second_value + "<b> - </b>" + my_first_value + "<b> = </b>" + my_second_result;
+                });
+                // RESET
+                document.getElementById("reset19").addEventListener("click", function(){
+                    document.getElementById("resultat19").innerHTML = "";
+                    document.getElementById("input19").value = "";
+                    document.getElementById("deuxieme_input19").value = "";                
+                });  
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> 1- Afficher une variable égale à 0, puis intégrez un bouton qui à chaque clique ajoute 10 à votre variable.<br>
+            2- Ajouter un autre bouton permettant de diviser ce nombre par 5.<br>
+            3- Ajouter ensuite un bouton permettant de multiplier votre variable par 8.<br>
+            4- Ajouter enfin un dernier bouton vous permettant de soustraire 2 à votre résultat.<br>
+            5- Intégrer un bouton qui combine les fonctions 4.1 et 4.4.<br>
+            6- Intégrer enfin un bouton reset.</p>
+            <input id="input20">
+            <button id="fonction20"></button>
+            <button id="reset20">Reset</button>
+            <p id="resultat20"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 11 -->
+        <div id="jour11">
+            <h2>Exercices Jour 11</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Pari sportif: Créer une fonction vous permettant de calculer les bénéfices à partir d'un montant prédéfini par l'utilisateur et d'une cote dynamique générée aléatoirement.<br>
+            Grossièrement, vous devez ajouter 1 champs input, 1 champ dynamique et 2 boutons (Calcul des bénéfices et génération aléatoire de la cote).<br>
+            Faites aussi en sorte que tous vos nombres décimaux n'est pas plus de 2 chiffres après la virgule.</p>
+            <p>Générer une côte aléatoire : <button id="fonction21">Générer</button></p>
+            <p id="resultat21"></p>
+            <p>Entrer votre mise : <input id="input21"></p>
+            <p>Calculer le bénéfice : <button id="deuxieme_fonction21">Calculer</button></p>
+            <p id="deuxieme_resultat21"></p>
+            <button id="reset21">Reset</button>
+            <script>
+                // FONCTION
+                let my_random = 0;
+                document.getElementById("fonction21").addEventListener("click", function(){
+                    my_random = (Math.random() * (1000 - 1) + 1).toFixed(2);
+                    document.getElementById("resultat21").innerHTML = "<b>Voici votre côte générée aléatoirement : </b>" + my_random;
+                });
+                document.getElementById("deuxieme_fonction21").addEventListener("click", function(){
+                    let my_value = parseFloat(document.getElementById("input21").value);
+                    if (isNaN(my_value) && my_random == 0){
+                        document.getElementById("deuxieme_resultat21").innerHTML ="<b>Pensez à entrer une mise & à générer une côte!!</b>"
+                    }
+                    else if (isNaN(my_value)){
+                        document.getElementById("deuxieme_resultat21").innerHTML ="<b>Pensez à entrer une mise !!</b>"
+                    }
+                    else if (my_random>0){
+                        let my_result = my_value * my_random;
+                        document.getElementById("deuxieme_resultat21").innerHTML = "<b>Vous avez misé </b>" + my_value + "€" + "<br><b>Pour une côte de </b>" + my_random + "<br><b>Voici vos gains : </b>" + my_result.toFixed(2) + "€"
+                    }
+                    else {
+                        document.getElementById("deuxieme_resultat21").innerHTML ="<b>Pensez à générer une côte !!</b>"
+                    }
+                });
+                // RESET
+                document.getElementById("reset21").addEventListener("click", function(){
+                    document.getElementById("resultat21").innerHTML = "";
+                    document.getElementById("input21").value = "";
+                    document.getElementById("deuxieme_resultat21").innerHTML = "";
+                    my_random = 0;               
+                }); 
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour convertir en liste HTML (ul+li) un tableau :
+                Exemple: avec en paramètres les elements de la liste :<br>
+                ['item 1', 'item 2', ...] et l'id de la liste 'myList'<br>
+                la sortie de la fonction devient :<br>
+                <code>
+                    &ltul id="mylist"&gt<br>
+                    &ltli&gtitem1&lt/li&gt<br>
+                    &ltli>item2&lt/li&gt<br>
+                    &lt/ul&gt
+                </code>
+            </p>
+            <input id="input22">
+            <button id="fonction22"></button>
+            <button id="reset22">Reset</button>
+            <p id="resultat22"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 12 -->
+        <div id="jour12">
+            <h2>Exercices Jour 12</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> (Pre-requis : lire une doc sur a reprensentation des nombres et le calcul bitwise)<br>
+                Ecrire un programme JS pour inverser l'ordre des bits dans un entier donné :<br>
+                56 => 111000 apres inversion 111 => 7<br>
+                234 => 11101010 apres inversion 1010111 => 87</p>
+            <p>Entrez un nombre : <input id="input23"></p>
+            <button id="fonction23">Convertir & Inverser</button>
+            <p id="resultat23"></p>
+            <button id="reset23">Reset</button>
+            <script> 
+                // FONCTION
+                document.getElementById("fonction23").addEventListener("click", function(){
+                    let my_value = parseInt(document.getElementById("input23").value)
+                    let my_first_binary = my_value.toString(2);
+                    let my_last_binary = my_value.toString(2).split("").reverse().join("");
+                    let my_result = parseInt(my_last_binary,2);
+
+                    document.getElementById("resultat23").innerHTML = my_value + " <b>traduit en binaire devient : </b>" + my_first_binary + "<br><b>Je l'inverse ce qui donne : </b>" + my_last_binary + "<br>" + my_last_binary + "<b> traduit en décimale devient : </b>" + my_result;
+                });
+                // RESET
+                document.getElementById("reset23").addEventListener("click", function(){
+                    document.getElementById("resultat23").innerHTML = "";
+                    document.getElementById("input23").value = "";
+                });    
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Supprimmer les éléments d'un tableau en fonction de la valeur de retour (bool) d'une fonction donnée : </p>
+            <input id="input24">
+            <button id="fonction24"></button>
+            <button id="reset24">Reset</button>
+            <p id="resultat24"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 13 -->
+        <div id="jour13">
+            <h2>Exercices Jour 13</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Ecrire une fonction JS pour vérifier qu'un entier donné > 100  comporte bien des chiffres en ordre croissant :<br>
+                123 = true<br>
+                132 = false </p>
+            <input id="input25">
+            <button id="fonction25">Vérifier</button>
+            <button id="reset25">Reset</button>
+            <p id="resultat25"></p>
+            <script>
+                document.getElementById("fonction25").addEventListener("click", function(){
+                    let my_number = document.getElementById("input25").value
+                    let my_array = my_number.split("").sort();
+                    my_array = my_array.join("");
+                    if(my_number == my_array){
+                        document.getElementById("resultat25").innerHTML = my_number + " <b>contient bien une suite de chiffres croissant</b>"
+                    }
+                    else document.getElementById("resultat25").innerHTML = my_number + " <b>ne contient pas une suite de chiffres croissant</b>";
+                });
+                // RESET
+                document.getElementById("reset25").addEventListener("click", function(){
+                    document.getElementById("resultat25").innerHTML = "";
+                    document.getElementById("input25").value = "";
+                });  
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Encoder / serialiser le contenu d'un formulaire (nom+email) sous forme de chaine </p>
+            <input id="input26">
+            <button id="fonction26"></button>
+            <button id="reset26">Reset</button>
+            <p id="resultat26"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 14 -->
+        <div id="jour14">
+            <h2>Exercices Jour 14</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> faire une fonction JS pour remplacer un hash '#" dans une chaine par un chiffre qui produit un entier divisible par 3<br>
+                Exemple : "2#0" => ['210','240','270']</p>
+            <input id="input27">
+            <button id="fonction27">Remplacer</button>
+            <button id="reset27">Reset</button>
+            <p id="resultat27"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction27").addEventListener("click", function(){
+                    let my_string = document.getElementById("input27").value;
+                    let my_number = 0;
+                    let temp = my_string.replace("#", my_number);
+                    while(temp % 3 != 0){
+                        my_number+=1;
+                        temp = my_string.replace("#", my_number);
+                    }
+                    document.getElementById("resultat27").innerHTML = "<b>Voici votre entrée : </b>" + my_string + "<br><b>Nous remplaçons le # par : </b>" + my_number + "<b><br>Ce qui donne : </b>" + temp + "<br><b>Car :</b> " + temp + "/3 = " + temp/3; 
+                });
+                // RESET
+                document.getElementById("reset27").addEventListener("click", function(){
+                    document.getElementById("resultat27").innerHTML = "";
+                    document.getElementById("input27").value = "";
+                });
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> Tester quelle fonction est la plus rapide en execution (on choisit une boucle qui determine si un tableau est composé d'entiers)</p>
+            <input id="input28">
+            <button id="fonction28"></button>
+            <button id="reset28">Reset</button>
+            <p id="resultat28"></p>
+            <script>
+            </script>
+        </div><br><br><hr>
+
+        <!-- EXERCICES DU JOUR 15 -->
+        <div id="jour15">
+            <h2>Exercices Jour 15</h2>
+            <!-- EXERCICE FACILE -->
+            <h3>Exercice Facile :</h3>
+            <p><b>Enoncé :</b> Générer une code couleur hexadecimal aléatoire </p>
+            <p>Cliquez pour générer une code couleur aléatoire :</p>
+            <button id="fonction29">Générer</button>
+            <button id="reset29">Reset</button>
+            <p id="resultat29"></p>
+            <script>
+                // FONCTION
+                document.getElementById("fonction29").addEventListener("click", function(){
+                    let my_choices = "ABCDEF123456789";
+                    let my_random = "";
+                    for(let i=0; i<6; i++){
+                        my_random += my_choices[Math.floor(Math.random() * my_choices.length)]
+                    }
+                    let my_color = "#" + my_random;
+                    document.getElementById("resultat29").innerHTML = "<b>Le code couleur hexadecimal généré aléatoirement est : </b>" + my_color + "<br><br><b><span style=color:"+my_color+">" + " VOTRE COULEUR </b></span>" ;
+
+                });
+                // RESET
+                document.getElementById("reset29").addEventListener("click", function(){
+                    document.getElementById("resultat29").innerHTML = "";
+                }); 
+            </script>
+            <!-- EXERCICE DIFFICILE -->
+            <h3>Exercice Difficile :</h3>
+            <p><b>Enoncé :</b> (pré-requis) = utilisation d'un objet json : https://developer.mozilla.org/fr/docs/Learn/JavaScript/Objects/JSON<br>
+                Ecrire une fonction JS pour renommer les clés d'un objet JSON </p>
+            <input id="input30">
+            <button id="fonction30"></button>
+            <button id="reset30">Reset</button>
+            <p id="resultat30"></p>
+            <script>
+            </script>
+        </div><br><br>              
+    </body>
+</html>

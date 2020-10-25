@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Le Bon Nombre</title>
+		<style>
+			html {
+				height: 100%;
+				margin: auto;
+				background : radial-gradient(#ffffff,#a6a6a6);
+			}
+			body {
+				height: 100%;
+				margin: auto;
+				background : radial-gradient(#ffffff,#a6a6a6);
+
+			}
+			header {
+				float: left;
+				height: 100%;
+				margin: auto;
+				width: 24%;
+				background : radial-gradient(#595959,#000000);
+				text-align: center;
+			}
+			h2{
+				padding-top: 20px;
+				color: white;
+				text-align: center;
+				text-decoration: underline;
+				font-size: 36px;
+				text-shadow: 0    0   2px #333333,
+       						 1px -1px 3px #595959,
+        					-2px -2px 4px #737373,
+      						 2px -4px 5px #999999,
+        					-2px -6px 6px #bfbfbf,
+       						 0   -8px 7px #e6e6e6,
+        					 1px -9px 8px #ffffff;
+			}
+			h1{
+				text-align: center;
+				margin-top: 0;
+				margin-bottom: 0;
+				font-size: 54px;
+				padding-top: 50px;
+								font-style: italic;
+				text-shadow: 0    0   2px #d9d9d9,
+       						 1px -1px 3px #b3b3b3,
+        					-2px -2px 4px #999999,
+      						 2px -4px 5px #808080,
+        					-2px -6px 6px #595959,
+       						 0   -8px 7px #333333,
+        					 1px -9px 8px #1a1a1a;
+			}
+			p {
+				font-size: 24px;
+			}
+			button {
+				border-radius:12px 0 12px 0;
+				background: #f5f5f5;
+				border:none;
+				color:#555;
+				font:bold 12px Verdana;
+				padding:6px 0 6px 0;
+				box-shadow:1px 1px 3px #999;
+				padding: 5px;
+				margin: 10px;
+				width: 80px;
+			}
+			.button:hover {
+				border-radius:12px 0 12px 0;
+				background: #f5f5f5;
+				border:none;
+				color:#555;
+				font:bold 12px Verdana;
+				padding:6px 0 6px 0;
+				-webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.96);
+				-moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.96);
+				box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.96);
+				padding: 5px;
+				margin: 5px;
+			}
+			#rdj{		
+				font-size: 24px;
+				color: white;
+				width: auto;
+				margin-top: 50px;
+			}
+			#main{
+				text-align: center;
+				margin: auto;
+				padding-top: 9%;
+				height: 65%;
+			}
+			input {
+				text-align: center;
+				height: 20px;
+				-webkit-border-radius: 45px;
+				-moz-border-radius: 45px;
+				border-radius: 45px;
+				width: 100px;
+			}
+			input[type=number] {
+    			-moz-appearance: textfield;
+			}
+			input::-webkit-inner-spin-button,input::-webkit-outer-spin-button { 
+					-webkit-appearance: none;
+					margin:0;
+				}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h2>Règle du jeu</h2>
+				<p id="rdj">Bienvenue à toi !<br><br>
+					Tu es venu me défier ?<br>
+					Tu penses pouvoir trouver Le Bon Nombre ?<br><br>
+					Laisses moi t'expliquer !<br>
+					Je vais choisir un chiffre entre 0 & 100 !<br>
+					Et toi, tu as 10 essais pour<br>
+					trouver le bon nombre...<br><br>
+					À chaque tentative,<br>
+					si le nombre recherché n'est pas trouvé,<br>
+					je te donnerais une indication :<br>
+					"Plus haut" ou "Plus bas".<br><br>
+					Bonne chance !</p>
+		</header>
+		<div>
+			<h1>Le Bon Nombre</h1>
+		</div>
+		<div id="main">
+			<h3>Entres une valeure entre 0 & 100 !</h3><br><br>
+			<input id="valeur" type="number" min="0" max="100"><br><br>
+			<button type="button" id="lanceF" class="button">Valider</button><button id="resetg" class="button">Reset</button>
+			<br><br>
+			<p id="result1"></p>
+			<p id="result2"></p>
+			<p id="result3"></p>
+		</div>
+
+		<script>
+			let valeur = document.getElementById("valeur");
+			let valeurR = Math.floor(Math.random()*100);
+			let count = 1;
+				document.getElementById("lanceF").addEventListener("click",function(){
+					let valeurU = Number(valeur.value); 
+				//Number(valeur.value);  autre manière de recuperer la valeur d'une entrée.
+						if(valeurU == valeurR){
+								document.getElementById("result1").innerHTML = "Bravo, tu as trouvé le bon nombre!";
+								document.getElementById("lanceF").disabled = true;
+								document.getElementById("result3").innerHTML = "Rhaaaaa je déteste perdre, j'exige ma revanche !!"
+								document.getElementById("result2").innerHTML = "";
+							}
+								else if(valeurU < valeurR) {
+									document.getElementById("result1").innerHTML = valeurU + " est trop petit !";
+									document.getElementById("result2").innerHTML = " Il te reste : " + ((11-count)-1) + " tentative(s)"; 
+								}
+								 else {
+									document.getElementById("result1").innerHTML = valeurU + " est trop grand !";
+									document.getElementById("result2").innerHTML = " Il te reste : " + ((11-count)-1) + " tentative(s)";
+								 }
+							 if ( count === 10){
+								document.getElementById("result2").innerHTML = "AHAHAH tu as perdu !";
+								document.getElementById("lanceF").disabled = true;
+								document.getElementById("result3").innerHTML = "Tu peux toujours te venger avec Reset !";
+								document.getElementById("result2").innerHTML = "";
+							}
+							count++;
+							valeur.value = "";
+							valeur.focus();
+						});
+
+				document.getElementById("resetg").addEventListener("click",function(reset){
+						document.getElementById("result1").innerHTML="";
+						document.getElementById("result2").innerHTML="";
+						document.getElementById("result3").innerHTML="";
+						document.getElementById("lanceF").disabled = false;
+						count = 1;
+				});
+		</script>
+	</body>
+</html>
